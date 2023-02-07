@@ -334,6 +334,11 @@ border-bottom-left-radius: 10px;
   font-size: 30px;
 }
 @media (max-width: 767px) {
+  .overlay-play a {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
   .wcu-img {
     padding: 0px;
   }

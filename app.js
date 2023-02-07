@@ -103,23 +103,35 @@ app.post("/", (req, res) => {
          accessToken: process.env.accessToken
       }
    });
-   var mailOptions = {
-      to: req.body.email,
-      from: process.env.email2,
-      subject: 'Mail DMH: ' + req.body.email,
-      html: '<h3>Business Name: ' + req.body.businessName + '<br> Full Name: ' + req.body.name + '<br>Email: ' + req.body.email + '<br>Phone Number: ' + req.body.Phone + '<br>Address: ' + req.body.address + '<br>Message: ' + req.body.message + '.</h3>',
-      attachments: {
-         filename: "Brochure.pdf",
-         path: "./attachments/brochure.pdf"
-      }
-   };
+   if(req.body.businessName == null) {
+      var mailOptions = {
+         to: req.body.email,
+         from: process.env.email1,
+         subject: 'Brochure Course',
+         html: '<h3>To Apply Click Here: <buton><a href="https://forms.gle/uQ5ypRJWWVKhPhn69">Apply Now!</a></button></h3>',
+         attachments: {
+            filename: "Brochure.pdf",
+            path: "./attachments/brochure.pdf"
+         }
+      };
+   } else {
+      var mailOptions = {
+         to: process.env.email1,
+         from: process.env.email2,
+         subject: 'Mail DMH: ' + req.body.email,
+         html: '<h3>Business Name: ' + req.body.businessName + '<br> Full Name: ' + req.body.name + '<br>Email: ' + req.body.email + '<br>Phone Number: ' + req.body.Phone + '<br>Address: ' + req.body.address + '<br>Message: ' + req.body.message + '.</h3>',
+      };
+   }
    smtpTransport.sendMail(mailOptions, function (err) {
       if (err) {
          console.log(err);
          req.flash("error", "It's not you, it's us. Some error had occur. Please try later. If you want to contact us now, Click below button.")
          res.redirect("/");
-      } else {
+      } else if(req.body.businessName == null) {
          req.flash("success", "We have sent you the brochure. Hope you will join our course. Want to talk more about this course? Click Below!")
+         res.redirect("/");
+      } else {
+         req.flash("success", "Your form is submitted. Our experts will contact you soon. If you want to contact us now, Click below button.")
          res.redirect("/");
       }
    });
