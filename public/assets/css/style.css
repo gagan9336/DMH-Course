@@ -266,6 +266,15 @@ border-bottom-left-radius: 10px;
   max-width: 980px;
   padding: 0px 35px;
 }
+.specification .c1 {
+  color: #292949;
+}
+.specification .c3 {
+  color: #5254CF;
+}
+.specification .c4 {
+  color: #292949;
+}
 .specification .spec-block .img-spec {
   flex: 1 1 0%;
 }
@@ -891,7 +900,7 @@ body {
 .second-button a {
   font-size: 14px;
   color: #fff;
-  background-color: #c03afe;
+  background-color: #31065E;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -904,9 +913,9 @@ body {
 }
 
 .second-button a:hover {
-  background-color: #c03afe;
+  background-color: #921CB1;
   color: #fff;
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 .section {

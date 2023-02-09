@@ -107,8 +107,8 @@ app.post("/", (req, res) => {
       var mailOptions = {
          to: req.body.email,
          from: process.env.email1,
-         subject: 'Brochure Course',
-         html: '<h3>To Apply Click Here: <buton><a href="https://forms.gle/uQ5ypRJWWVKhPhn69">Apply Now!</a></button></h3>',
+         subject: 'Executive Digital Marketing Course',
+         html: '<h3>Dear '+ req.body.name +',</h3><h3>Greetings from Digital Media Hawk!</h3><p>We are happy to share this moment of great joy and success with you as you take the first step of joining a Digital Marketing Course and get prepared to boost your career prospects. You are now just a step away from being a part of Digital Media Hawks member. Please find the attached copy of the brochure. </p><p>Best Wishes and Congratulations once again. </p><p>Regards,<br><span style="font-weight: bold;">Digital Media Hawk</span></p><a href="https://course.digitalmediahawk.com" style="text-decoration:none;">course.digitalmediahawk.com</a><br><a style="text-decoration:none;" href="tel:+918383862320">+91 8383862320</a>',
          attachments: {
             filename: "Brochure.pdf",
             path: "./attachments/brochure.pdf"
