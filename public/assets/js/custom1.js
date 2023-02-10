@@ -19,6 +19,7 @@ function scrollFunction() {
     mybutton.style.display = "none";
   }
 }
+
 // $(document).ready(function() {
 //   $("#btnFetch").click(function() {
 //     // disable button

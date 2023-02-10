@@ -125,18 +125,21 @@ app.post("/", (req, res) => {
    smtpTransport.sendMail(mailOptions, function (err) {
       if (err) {
          console.log(err);
-         req.flash("error", "It's not you, it's us. Some error had occur. Please try later. If you want to contact us now, Click below button.")
+         req.flash("error", "It's not you, it's us 😣. Some error had occur. Please try later 😓. If you want to contact us now 😀, Click below button.")
          res.redirect("/");
       } else if(req.body.businessName == null) {
-         req.flash("success", "We have sent you the brochure. Hope you will join our course. Want to talk more about this course? Click Below!")
-         res.redirect("/");
+         res.render("confirmation");
       } else {
-         req.flash("success", "Your form is submitted. Our experts will contact you soon. If you want to contact us now, Click below button.")
+         req.flash("success", "Your form is submitted 😀. Our experts will contact you soon 👌. If you want to contact us now, Click below button.")
          res.redirect("/");
       }
    });
 })
 
+// getting confirmation page
+app.get("/confirmation", (req, res) => {
+   res.render("confirmation");
+})
 
 // getting privacy-policy page
 app.get("/privacy-policy", (req, res) => {

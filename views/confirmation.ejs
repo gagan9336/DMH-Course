@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mail Sent - Digital Media Hawk</title>
+    <meta name="author" content="Digital Media Hawk">
+    <meta name="title" content="Digital Media Hawk - Mail Sent">
+    <meta name="description" content="This page is showing because we have sent you Mail Successfully. "/>
+    
 
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-09B745BQJB"></script>
@@ -64,7 +77,7 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li class="scroll-to-section"><a href="https://digitalmediahawk.com" target="_blank">Home</a></li>
-                      <li class="scroll-to-section"><a href="#top" class="active">Course</a></li>
+                      <li class="scroll-to-section"><a href="#top">Course</a></li>
                       <li class="scroll-to-section"><a href="#cc">Course Content</a></li>
                       <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
                   </ul>   
@@ -77,27 +90,27 @@
         </div>
     </div>
   </header>
-      
-      <button style="display: none;" type="button" id="modal-button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-      </button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Flash Messages -->
-              <div class="container">
-                <% if(error && error.length> 0){ %>
-                <div class="alert alert-danger" role="alert"><%=error%></div>
-                <% } %> 
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="main-button main-whatsapp scroll-to-section"><a href="https://wa.me/+918383862320" target="_blank"><i class="fab fa-whatsapp"></i>  Whatsapp</a></div>
-            </div>
+     
+  <div class="page-heading" id="buttonCheck">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 align-self-center responsive">
+          <div class="caption  header-text">
+            <div class="line-dec"></div>
+            <h1>Mail Sent <em>Successfully</em></h1>
+            <div class="line-dec"></div>
+            <p class="para-responsive">We have sent you the brochure 😀. Hope you will join our course 😳. Want to talk more about this course? Click Below!</p>
+            <div class="main-button"><a href="/">Home</a></div>
+            <span> </span>
+            <div class="second-button"><a href="tel:+918383862320">Contact Us</a></div>
           </div>
         </div>
+        <div class="col-lg-5">
+          <img src="assets/images/mail-sent.gif" alt="">
+        </div>
       </div>
+    </div>
+  </div>
+
+
+  <%-include("./partials/footer")%>

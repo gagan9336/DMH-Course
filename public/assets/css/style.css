@@ -651,6 +651,11 @@ border-bottom-left-radius: 10px;
   }
 }
 
+/* confirmation page */
+.confirmation {
+  margin-top: 300px;
+}
+
 /* FAQS */
 
 .faq {
