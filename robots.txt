@@ -4,4 +4,4 @@ Disallow:
 Disallow: /cgi-bin/
 Disallow: /node_modules/
 Disallow: /.env/
-Sitemap: https://digitalmediahawk.com/sitemaps.xml
+Sitemap: https://course.digitalmediahawk.com/sitemap.xml
