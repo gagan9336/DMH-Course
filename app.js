@@ -128,7 +128,7 @@ app.post("/", (req, res) => {
          req.flash("error", "It's not you, it's us 😣. Some error had occur. Please try later 😓. If you want to contact us now 😀, Click below button.")
          res.redirect("/");
       } else if(req.body.businessName == null) {
-         res.render("confirmation");
+         res.redirect("/confirmation");
       } else {
          req.flash("success", "Your form is submitted 😀. Our experts will contact you soon 👌. If you want to contact us now, Click below button.")
          res.redirect("/");
