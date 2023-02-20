@@ -156,6 +156,10 @@ app.get("/t&c", (req, res) => {
    res.render("t&c");
 })
 
+// getting t&c page
+app.get("/refund-policy", (req, res) => {
+   res.render("refund");
+})
 
 // getting sitemap page
 app.get("/sitemap.xml", (req, res) => {
