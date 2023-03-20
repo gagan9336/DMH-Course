@@ -87,6 +87,11 @@ app.get("/", (req, res) => {
    res.render("index1", {slides: slides, slideImg: slideImg});
 })
 
+// getting Home page
+app.get("/content", (req, res) => {
+   res.render("content");
+})
+
 app.post("/", (req, res) => {
    var smtpTransport = nodemailer.createTransport({
       // host: "smtp.hostinger.com",

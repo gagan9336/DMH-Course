@@ -465,6 +465,100 @@ border-bottom-left-radius: 10px;
   }
 }
 
+/* Price Section */
+
+.price {
+  margin: 50px;
+}
+.price .container h2 {
+  font-size: 35px;
+  margin-bottom: 4rem;
+}
+.price .container .price-row {
+  gap: 2em;
+  justify-content: center;
+}
+.price .container .price-row .price-col {
+  border: 1px solid rgb(44, 75, 255);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 50px -1px;
+}
+.price .container .price-row .price-col h3{
+  font-size: 25px;
+  margin: 30px 0px;
+}
+.price .container .price-row .price-col p{
+  font-size: 20px;
+  margin: 10px 0px;
+}
+.price .container .price-row .price-col button{
+  margin: 10px 0px;
+}
+.price .container .price-row .price-col .price-para{
+  align-items: center;
+  text-align: center;
+  padding: 30px 0px;
+  background-color: #F8FAFA;
+}
+.price .container .price-row .price-col .price-para p{
+  font-size: 15px;
+}
+.price .container .price-row .price-col ul{
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+.price .container .price-row .price-col ul li{
+  list-style-type: '✔️';
+  font-size: 20px;
+  padding-inline-start: 1ch;
+}
+
+
+@media (max-width: 767px) {
+  .price .container .price-row .price-col ul {
+    margin-left: 1rem;
+  }
+  .price .container .price-row .price-col ul li {
+      font-size: 20px;
+  }
+}
+@media (max-width: 586px) {
+  .price .container .price-row .price-col h3{
+    font-size: 20px;
+    margin: 20px 0px;
+  }
+  .price .container .price-row .price-col p{
+    font-size: 17px;
+    margin: 5px 0px;
+  }
+  .price .container .price-row .price-col button{
+    margin: 5px 0px;
+  }
+  .price .container .price-row .price-col .price-para{
+    align-items: center;
+    text-align: center;
+    padding: 20px 0px;
+    background-color: #F8FAFA;
+  }
+  .price .container .price-row .price-col .price-para p{
+    font-size: 12px;
+  }
+  .price .container .price-row .price-col ul{
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
+  }
+  .price .container .price-row .price-col ul li{
+    list-style-type: '✔️';
+    font-size: 15px;
+    padding-inline-start: 1ch;
+  }
+}
+
+
 /* batch */
 
 .batch {
@@ -484,16 +578,17 @@ border-bottom-left-radius: 10px;
 }
 .batch .batch-flex .batch-body ul li {
     list-style-type: '👉';
-    font-size: 25px;
+    font-size: 20px;
     padding-inline-start: 1ch;
 }
 
 @media (max-width: 767px) {
   .batch .batch-flex .batch-body ul {
+    text-align: left;
     margin-left: 1rem;
   }
   .batch .batch-flex .batch-body ul li {
-      font-size: 20px;
+      font-size: 17px;
   }
 }
 /* Who should learn */
@@ -748,6 +843,426 @@ border-bottom-left-radius: 10px;
   color:white;      
   }
 
+
+/* Content page start */
+
+/* Main banner */
+.content-banner {
+  padding-top: 110px;
+  background: linear-gradient(rgba(238, 240, 249, 0) 20%, rgb(238, 240, 249) 80%);
+}
+.content-banner .container {
+  padding: 110px;
+  text-align: center;
+}
+.content-banner .container h1 {
+  margin-bottom: 1.857rem;
+  font-weight: 800;
+  font-size: 45px;
+}
+.content-banner .container .banner-p {
+  margin-bottom: 1.857rem;
+  padding: 0px 150px;
+  line-height: 1.5;
+}
+.banner-row {
+  gap: 16px;
+}
+.f-1 {
+  display: flex;
+  justify-content: end;
+}
+.f-2 {
+  display: flex;
+  justify-content: start;
+}
+
+.content-banner .head-content {
+  margin-top: 200px;
+}
+
+.content-banner .container .b1 {
+  border: 0px;
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: rgb(44, 75, 255);
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+.content-banner .container .b2 {
+  border: 1px solid rgb(44, 75, 255);
+  color: rgb(44, 75, 255);
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+}
+
+.content-banner::before {
+  content: url(../images/hero-left.webp);
+  top: 200px;
+  aspect-ratio: 385/392;
+  position: absolute;
+  z-index: -1;
+}
+.content-banner::after {
+  content: url(../images/hero-right.webp);
+  top: 200px;
+  right: 0;
+  aspect-ratio: 385/392;
+  position: absolute;
+  z-index: -1;
+}
+
+.key-point {
+  margin-top: 70px;
+}
+.key-point .row{
+  justify-content: center;
+  gap: 16px;
+}
+.key-point .row .perks {
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid rgb(44, 75, 255);
+  padding: 5px 0px;
+}
+.key-point .row .col h6 {
+  margin-bottom: 5px;
+}
+.key-point .row .col i {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1150px) {
+  .content-banner::before {
+    content: "";
+  }
+  .content-banner::after {
+    content: "";
+  }
+}
+@media (max-width: 1200px) {
+  .content-banner .container h1 {
+    margin-bottom: 1.857rem;
+    font-weight: 800;
+    font-size: 35px;
+  }
+  .content-banner .container {
+    padding: 110px 0px;
+    text-align: center;
+  }
+  .content-banner .container .banner-p {
+    margin-bottom: 1.857rem;
+    padding: 0px 10px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 992px) {
+  .content-banner .container h1 {
+    margin-bottom: 1.857rem;
+    font-weight: 800;
+    font-size: 25px;
+  }
+  .content-banner .container {
+    padding: 80px 0px;
+    text-align: center;
+  }
+  .content-banner .container .banner-p {
+    margin-bottom: 1.857rem;
+    padding: 0px 10px;
+    line-height: 1.5;
+  }
+  .content-banner .head-content {
+    margin-top: 100px;
+  }
+}
+@media (max-width: 497px) {
+  .content-banner .container h1 {
+    margin-bottom: 1.857rem;
+    font-weight: 800;
+    font-size: 25px;
+  }
+  .content-banner .container {
+    padding: 80px 0px;
+    text-align: center;
+  }
+  .content-banner .container .banner-p {
+    margin-bottom: 1.857rem;
+    padding: 0px 10px;
+    line-height: 1.5;
+  }
+
+  .content-banner .container .b1 {
+    padding: 10px 10px;
+    font-size: 20px;
+  }
+  .content-banner .container .b2 {
+    padding: 10px 10px;
+    font-size: 20px;
+  }
+  .content-banner .head-content {
+    margin-top: 100px;
+  }
+}
+
+/* highlight banner */
+
+.highlight {
+  padding-top: 50px;
+}
+
+.highlight .container h2 {
+  margin-bottom: 1.857rem;
+  font-weight: 800;
+  font-size: 35px;
+  text-align: center;
+}
+
+.highlight-point {
+  margin-top: 70px;
+}
+.highlight-point .row{
+  justify-content: center;
+  gap: 2em;
+}
+.highlight-point .row .perks {
+  background-color: #F7F8FC;
+  border-radius: 15px;
+  padding: 40px;
+}
+.highlight-point .row .perks h4 {
+  margin-bottom: 30px;
+  font-size: 1.857rem;
+}
+.highlight-point .row .perks i {
+  margin-top: 5px;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+/* wyl-banner */
+
+.wyl-banner {
+  margin-top: 150px;
+  padding: 40px;
+  background-color: #FDFBFD;  
+}
+
+.wyl h2 {
+  margin-bottom: 80px;
+  font-weight: 800;
+  font-size: 35px;
+  text-align: center;
+}
+.wyl .wyl-flex {
+  display: flex;
+  align-items: center;
+}
+.wyl .wyl-flex img {
+  width: 500px;
+}
+
+.wyl .wyl-flex .wyl-body ul {
+  padding-left: 20px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  margin-left: 4rem;
+}
+.wyl .wyl-flex .wyl-body ul li {
+    list-style-type: '✔️';
+    font-size: 20px;
+    padding-inline-start: 1ch;
+}
+
+@media (max-width: 767px) {
+  .wyl .wyl-flex .wyl-body ul {
+    margin-left: 1rem;
+  }
+  .wyl .wyl-flex .wyl-body ul li {
+      font-size: 20px;
+  }
+  .wyl-banner {
+    padding: 40px 0px;
+    margin-top: 50px;
+  }
+  .wyl-banner .container h2 {
+    font-size: 25px;
+  }
+}
+
+/* extra banner */
+
+.extra {
+  margin-top: 5rem;
+}
+.extra-flex{
+  display: flex;
+  align-items: center;
+}
+.extra-caption {
+  margin-left: 65px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.extra-caption p {
+  display: inline-block;
+  position: relative;
+  color: rgb(44, 75, 255);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.extra-caption p::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-bottom: 2px solid black;
+  top: 25%;
+  width: 50px;
+  right: 100%;
+  margin-right: 15px;
+  display: inline-block;
+}
+.extra-body .extra-link {
+  margin: 20px 0px;
+  cursor: pointer;
+}
+.extra-body .modal-title span {
+  background-color: #fade2a;
+  padding: 5px;
+}
+.extra .orange-button {
+  background-color: #fade2a !important;
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.extra .extra-grid {
+  margin: 3rem 0rem;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra .extra-grid .extra-grid-inner {
+  margin-top: 2rem;
+}
+
+.extra .extra-grid .extra-grid-inner img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.extra-p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.extra .extra-grid .extra-grid-inner h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0px 0px 1.25rem;
+}
+
+@media (max-width: 560px) {
+  .extra .extra-grid {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .extra {
+    padding: 10px;
+  }
+  .extra-caption p::before {
+    display: none;
+  }
+  .extra-caption p {
+    text-align: center;
+  }
+  .extra-caption {
+    margin-left: 0px;
+    text-align: center;
+  }
+  .extra-body {
+    text-align: center;
+  }
+  .batch .batch-flex {
+    text-align: center;
+  }
+}
+@media (max-width: 1285px) {
+  .extra {
+    padding: 10px;
+    max-width: 945px;
+  }
+}
+
+/* certificate-banner */
+
+.certificate {
+  margin: 100px 0px;
+  padding: 100px;
+  background-color: rgb(44, 75, 255);
+}
+.certificate h2 {
+  color: #F3AFB9;
+  margin-bottom: 1.875rem;
+}
+.certificate p {
+  margin-bottom: 1.875rem;
+  color: white;
+  padding: 0px 200px;
+}
+
+@media (max-width: 767px) {
+  .certificate {
+    padding: 50px 0px;
+  }
+  .certificate p {
+    padding: 0px 10px;
+  }
+}
+
+/* meet-banner */
+
+.meet {
+  margin-top: 100px;
+}
+.meet .meet-flex h4 {
+  font-size: 25px;
+  margin-bottom: 1.857rem;
+}
+.meet-flex {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .meet .meet-flex .meet-col p {
+    text-align: center;
+  }
+  .meet .meet-flex .meet-col h4 {
+    text-align: center;
+  }
+}
+
+
+/* Content page end */
 /* =======timeline-end======== */
 
 .clearfix {
