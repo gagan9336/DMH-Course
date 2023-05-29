@@ -1287,7 +1287,17 @@ p {
 ul, li {
   padding: 0;
   margin: 0;
-  list-style: none;
+  /* list-style: none; */
+}
+.list-tc ol li {
+  font-size: 18px;
+  margin-left: 20px;
+  line-height: 2;
+}
+.list-tc-2 ul li {
+  font-size: 18px;
+  margin-left: 20px;
+  line-height: 2;
 }
 
 header, nav, section, article, aside, footer, hgroup {
