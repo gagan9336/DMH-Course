@@ -1,11 +1,12 @@
 
-(function () {
-    var words = ["Best Digital Marketing Course in Rohtak","Industry Recognized Digital Marketing Course Content","Digital Marketing Course with 100% Job Assistance" ],
-    i = 0;
-    setInterval(function(){ $('#words').fadeOut(function(){
-        $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
-      }); }, 3000)
-  })();
+// ====functionality of showing 3 headings in single line after short duration====
+// (function () {
+//     var words = ["Best Digital Marketing Course in Rohtak","Industry Recognized Digital Marketing Course Content","Digital Marketing Course with 100% Job Assistance" ],
+//     i = 0;
+//     setInterval(function(){ $('#words').fadeOut(function(){
+//         $(this).html(words[(i = (i + 1) % words.length)]).fadeIn();
+//       }); }, 3000)
+//   })();
 
 // Get the button:
 let mybutton = document.getElementById("scroll-up");

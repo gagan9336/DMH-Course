@@ -470,7 +470,7 @@ border-bottom-left-radius: 10px;
 .price {
   margin: 50px;
 }
-.price .container h2 {
+.price .container h3 {
   font-size: 35px;
   margin-bottom: 4rem;
 }
@@ -597,7 +597,7 @@ border-bottom-left-radius: 10px;
   margin-top: 7rem;
 }
 
-.wsl-section h2 span {
+.wsl-section h3 span {
   background-color: #FADE2A;
   padding: 0px 5px;
 }
@@ -2361,7 +2361,7 @@ canvas {
   margin-bottom: 20px;
 }
 .main-banner h1 {
-  font-size: 42px;
+  font-size: 40px;
   color: white;
   font-weight: 500;
   line-height: 60px;
