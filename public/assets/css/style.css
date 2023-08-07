@@ -591,6 +591,206 @@ border-bottom-left-radius: 10px;
       font-size: 17px;
   }
 }
+
+/* Short Term Section */
+.shortT {
+  margin-top: 7rem;
+}
+.tags .btn  {
+  cursor:default;
+}
+.tags .btn:hover  {
+    color: #0d6efd;
+    background-color: white;
+    border-color: #0d6efd;
+}
+.tags .btn:hover  {
+  color: #0d6efd;
+  background-color: white;
+  border-color: #0d6efd;
+}
+.shortT-grid {
+  margin-top: 3rem;
+}
+.btn-animation:hover{
+  color: white;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.btn-animation {
+  cursor: default;
+	animation: beat .5s infinite alternate;
+}
+
+@keyframes beat{
+	to { transform: scale(1.1); }
+}
+
+.shortT-grid .row .short-grid {
+  padding: 10px;
+  border: 2px solid rgb(44, 75, 255);
+  border-radius: 20px;
+  transition: box-shadow .3s;
+}
+
+.shortT-grid .row .short-grid:hover {
+  box-shadow: rgba(11,94,215, 0.4) 5px 5px, rgba(11,94,215, 0.3) 10px 10px, rgba(11,94,215, 0.2) 15px 15px, rgba(11,94,215, 0.1) 20px 20px, rgba(11,94,215, 0.05) 25px 25px;
+}
+
+.shortT .shortT-grid .content-data .icon{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+.icon-2 {
+ margin-left: 10px;
+}
+.shortT .shortT-grid .content-data .content-p{
+
+  font-size: 18px;
+}
+
+.shortT .shortT-grid .shortT-avatar .avatar {
+  /* width: 150px; */
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  /* border: 1px solid #fff; */
+  border-radius: 50%;
+}
+.shortT .shortT-grid .shortT-avatar .para span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+.shortT .shortT-grid .shortT-avatar .para p {
+  font-size: 17px;
+  line-height: 1.5;
+}
+.shortT .shortT-grid .price-short{
+  padding: 10px 10px;
+}
+.shortT .shortT-grid .price-short .discount {
+  font-size: 40px;
+  color: rgb(44, 75, 255);
+  font-weight: bold;
+}
+.shortT .shortT-grid .price-short .actual {
+  font-size: 25px;
+  color: grey;
+  text-decoration: line-through;
+  padding: 0px 10px;
+}
+
+.shortT h2 span {
+  background-color: #08C4B2;
+  padding: 0px 5px;
+}
+
+.shortT .wsl-p {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.shortT .wsl-grid {
+  margin-top: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shortT .wsl-grid .wsl-grid-flex {
+  gap: 3em;
+  justify-content: center;
+}
+
+.shortT .wsl-grid .card {
+  border: none;
+}
+
+.effect {
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #0B5ED7;
+  font-family: 'Roboto', sans-serif;
+  width: 150px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.effect.effect-2 {
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.effect.effect-2:before {
+  content: "\f0a4";
+  font-family: FontAwesome;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0px 6px 6px 0px;
+  -webkit-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+  text-align: center;
+}
+.effect.effect-2:hover {
+  text-indent: -30px;
+}
+.effect.effect-2:hover:before {
+  right: 0;
+  text-indent: 0px;
+}
+
+@media (max-width: 767px) {
+  .shortT .shortT-grid .shortT-avatar .avatar {
+    width: 300px; 
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    /* border: 1px solid #fff; */
+    border-radius: 50%;
+  }
+  .shortT .shortT-grid .shortT-avatar .para {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 560px) {
+  .shortT .shortT-grid .shortT-avatar .avatar {
+    width: 200px; 
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    /* border: 1px solid #fff; */
+    border-radius: 50%;
+  }
+  .shortT .shortT-grid .shortT-avatar .para {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+}
+
+
 /* Who should learn */
 
 .wsl-section {
