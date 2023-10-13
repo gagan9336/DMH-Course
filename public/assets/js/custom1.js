@@ -13,8 +13,6 @@
 
 var $videoSrc = "https://www.youtube.com/embed/QcTv6nGoCM4?si=lSD4NkRvPKPRMMe2";  
 
-console.log($videoSrc+" not shown");
-
   
   
 // when the modal is opened autoplay it  
