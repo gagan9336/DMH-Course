@@ -5,9 +5,13 @@ var express = require("express"),
    methodOverride = require("method-override"),
    aos = require("aos"),
    nodemailer = require("nodemailer"),
-   flash = require("connect-flash");
+   flash = require("connect-flash"),
+   axios = require('axios'),
+   uniqid = require('uniqid'),
+   sha256 = require("sha256");
 
 require('dotenv').config();
+
 
 
 const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI)
@@ -81,6 +85,103 @@ var slideImg = [
    "assets/images/icons/wordpress.png",
    "assets/images/icons/coding.png"
 ]
+
+// phonepay testing purpous
+const Phone_Pe_Host_URL = "https://api.phonepe.com/apis/hermes";
+const Merchant_ID = "M22ACB5ZAKFAC";
+const Salt_KEY = "1c6347c9-edde-41e1-9ae4-9b820950f8d9";
+const Salt_INDEX = 1; 
+
+// phonepay req
+app.get("/pay/:amount", (req, res) => {
+   const amount = req.params.amount;
+   const payEndPoint = "/pg/v1/pay";
+   const merchantTransactionId = uniqid();
+   const userId = 128;
+
+   const payload = {
+      "merchantId": Merchant_ID,
+      "merchantTransactionId": merchantTransactionId,
+      "merchantUserId": userId,
+      "amount": amount, // in paise
+      "redirectUrl": `https://course.digitalmediahawk.com/redirect-url/${merchantTransactionId}`,
+      "redirectMode": "REDIRECT",
+      // "callbackUrl": `https://course.digitalmediahawk.com/redirect-url/${merchantTransactionId}`,
+      "mobileNumber": "8383862320",
+      "paymentInstrument": {
+        "type": "PAY_PAGE"
+      }
+    }
+// SHA256(base64 encoded payload + “/pg/v1/pay” + salt key) + ### + salt index
+    const bufferObj = Buffer.from(JSON.stringify(payload), "utf8");
+    const base64EncodedPayload = bufferObj.toString("base64");
+
+    const xVerify = sha256(base64EncodedPayload + payEndPoint + Salt_KEY) + "###" + Salt_INDEX;
+    
+
+   const options = {
+   method: 'post',
+   url: `${Phone_Pe_Host_URL}${payEndPoint}`,
+   headers: {
+               accept: 'application/json',
+               'Content-Type': 'application/json',
+               'X-VERIFY': xVerify
+            },
+   data: {
+      request: base64EncodedPayload,
+   }
+   };
+   axios
+   .request(options)
+         .then(function (response) {
+         console.log(response.data);
+         const url = response.data.data.instrumentResponse.redirectInfo.url;
+         res.redirect(url);
+         // res.send(url);
+   })
+   .catch(function (error) {
+      console.error(error);
+   });
+
+})
+
+app.get("/redirect-url/:merchantTransactionId", (req, res) => {
+   const { merchantTransactionId } = req.params;
+   console.log('merchantTransactionId', merchantTransactionId);
+   if(merchantTransactionId) {
+
+      
+      // SHA256(“/pg/v1/status/{merchantId}/{merchantTransactionId}” + saltKey) + “###” + saltIndex
+      const xVerify = sha256(`/pg/v1/status/${Merchant_ID}/${merchantTransactionId}` + Salt_KEY) + "###" + Salt_INDEX;
+      console.log("xverify: "+ xVerify);
+      const options = {
+      method: 'get',
+      url: `${Phone_Pe_Host_URL}/pg/v1/status/${Merchant_ID}/${merchantTransactionId}`,
+      headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+            'X-MERCHANT-ID': merchantTransactionId,
+            'X-VERIFY': xVerify,
+            },
+      };
+      axios
+      .request(options)
+            .then(function (response) {
+            console.log(response.data); 
+            res.send(response.data);
+      })
+      .catch(function (error) {
+         console.error('line 170 error:'+ error);
+      });
+
+      // res.send({merchantTransactionId});
+   } else {
+      res.send('line 175 error:'+ {error: "Error"})
+   }
+})
+
+
+
 
 // getting Home page
 app.get("/", (req, res) => {
