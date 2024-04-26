@@ -5,10 +5,11 @@ var express = require("express"),
    methodOverride = require("method-override"),
    aos = require("aos"),
    nodemailer = require("nodemailer"),
-   flash = require("connect-flash"),
-   axios = require('axios'),
-   uniqid = require('uniqid'),
-   sha256 = require("sha256");
+   flash = require("connect-flash");
+   // axios = require('axios'),
+   // uniqid = require('uniqid'),
+   // sha256 = require("sha256"),
+   // date = require('date-and-time');
 
 require('dotenv').config();
 
@@ -86,99 +87,107 @@ var slideImg = [
    "assets/images/icons/coding.png"
 ]
 
-// phonepay testing purpous
-const Phone_Pe_Host_URL = "https://api.phonepe.com/apis/hermes";
-const Merchant_ID = "M22ACB5ZAKFAC";
-const Salt_KEY = "1c6347c9-edde-41e1-9ae4-9b820950f8d9";
-const Salt_INDEX = 1; 
+// // phonepay testing purpous
+// const Phone_Pe_Host_URL = "https://api-preprod.phonepe.com/apis/hermes";
+// const Merchant_ID = "PGTESTPAYUAT";
+// const Salt_KEY = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+// const Salt_INDEX = 1; 
 
-// phonepay req
-app.get("/pay/:amount", (req, res) => {
-   const amount = req.params.amount;
-   const payEndPoint = "/pg/v1/pay";
-   const merchantTransactionId = uniqid();
-   const userId = 128;
+// // phonepay req
+// app.get("/pay/:amount", (req, res) => {
+//    const amount = req.params.amount;
+//    const payEndPoint = "/pg/v1/pay";
+//    const merchantTransactionId = uniqid();
+//    const userId = 128;
 
-   const payload = {
-      "merchantId": Merchant_ID,
-      "merchantTransactionId": merchantTransactionId,
-      "merchantUserId": userId,
-      "amount": amount, // in paise
-      "redirectUrl": `https://course.digitalmediahawk.com/redirect-url/${merchantTransactionId}`,
-      "redirectMode": "REDIRECT",
-      // "callbackUrl": `https://course.digitalmediahawk.com/redirect-url/${merchantTransactionId}`,
-      "mobileNumber": "8383862320",
-      "paymentInstrument": {
-        "type": "PAY_PAGE"
-      }
-    }
-// SHA256(base64 encoded payload + “/pg/v1/pay” + salt key) + ### + salt index
-    const bufferObj = Buffer.from(JSON.stringify(payload), "utf8");
-    const base64EncodedPayload = bufferObj.toString("base64");
+//    const payload = {
+//       "merchantId": Merchant_ID,
+//       "merchantTransactionId": merchantTransactionId,
+//       "merchantUserId": userId,
+//       "amount": amount, // in paise
+//       "redirectUrl": `http://localhost:2000/redirect-url/${merchantTransactionId}`,
+//       "redirectMode": "REDIRECT",
+//       // "callbackUrl": `https://course.digitalmediahawk.com/redirect-url/${merchantTransactionId}`,
+//       "mobileNumber": "8383862320",
+//       "paymentInstrument": {
+//         "type": "PAY_PAGE"
+//       }
+//     }
+// // SHA256(base64 encoded payload + “/pg/v1/pay” + salt key) + ### + salt index
+//     const bufferObj = Buffer.from(JSON.stringify(payload), "utf8");
+//     const base64EncodedPayload = bufferObj.toString("base64");
 
-    const xVerify = sha256(base64EncodedPayload + payEndPoint + Salt_KEY) + "###" + Salt_INDEX;
+//     const xVerify = sha256(base64EncodedPayload + payEndPoint + Salt_KEY) + "###" + Salt_INDEX;
     
 
-   const options = {
-   method: 'post',
-   url: `${Phone_Pe_Host_URL}${payEndPoint}`,
-   headers: {
-               accept: 'application/json',
-               'Content-Type': 'application/json',
-               'X-VERIFY': xVerify
-            },
-   data: {
-      request: base64EncodedPayload,
-   }
-   };
-   axios
-   .request(options)
-         .then(function (response) {
-         console.log(response.data);
-         const url = response.data.data.instrumentResponse.redirectInfo.url;
-         res.redirect(url);
-         // res.send(url);
-   })
-   .catch(function (error) {
-      console.error(error);
-   });
+//    const options = {
+//    method: 'post',
+//    url: `${Phone_Pe_Host_URL}${payEndPoint}`,
+//    headers: {
+//                accept: 'application/json',
+//                'Content-Type': 'application/json',
+//                'X-VERIFY': xVerify
+//             },
+//    data: {
+//       request: base64EncodedPayload,
+//    }
+//    };
+//    axios
+//    .request(options)
+//          .then(function (response) {
+//          console.log(response.data);
+//          const url = response.data.data.instrumentResponse.redirectInfo.url;
+//          res.redirect(url);
+//          // res.send(url);
+//    })
+//    .catch(function (error) {
+//       console.error(error);
+//    });
 
-})
+// })
 
-app.get("/redirect-url/:merchantTransactionId", (req, res) => {
-   const { merchantTransactionId } = req.params;
-   console.log('merchantTransactionId', merchantTransactionId);
-   if(merchantTransactionId) {
+// app.get("/redirect-url/:merchantTransactionId", (req, res) => {
+//    const { merchantTransactionId } = req.params;
+//    console.log('merchantTransactionId', merchantTransactionId);
+//    if(merchantTransactionId) {
 
       
-      // SHA256(“/pg/v1/status/{merchantId}/{merchantTransactionId}” + saltKey) + “###” + saltIndex
-      const xVerify = sha256(`/pg/v1/status/${Merchant_ID}/${merchantTransactionId}` + Salt_KEY) + "###" + Salt_INDEX;
-      console.log("xverify: "+ xVerify);
-      const options = {
-      method: 'get',
-      url: `${Phone_Pe_Host_URL}/pg/v1/status/${Merchant_ID}/${merchantTransactionId}`,
-      headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-            'X-MERCHANT-ID': merchantTransactionId,
-            'X-VERIFY': xVerify,
-            },
-      };
-      axios
-      .request(options)
-            .then(function (response) {
-            console.log(response.data); 
-            res.send(response.data);
-      })
-      .catch(function (error) {
-         console.error('line 170 error:'+ error);
-      });
+//       // SHA256(“/pg/v1/status/{merchantId}/{merchantTransactionId}” + saltKey) + “###” + saltIndex
+//       const xVerify = sha256(`/pg/v1/status/${Merchant_ID}/${merchantTransactionId}` + Salt_KEY) + "###" + Salt_INDEX;
+//       console.log("xverify: "+ xVerify);
+//       const options = {
+//       method: 'get',
+//       url: `${Phone_Pe_Host_URL}/pg/v1/status/${Merchant_ID}/${merchantTransactionId}`,
+//       headers: {
+//             accept: 'application/json',
+//             'Content-Type': 'application/json',
+//             'X-MERCHANT-ID': merchantTransactionId,
+//             'X-VERIFY': xVerify,
+//             },
+//       };
+//       axios
+//       .request(options)
+//             .then(function (response) {
+//             console.log(response.data); 
+//             // res.send(response.data);
+//             const pattern = date.compile('MMM D, YYYY  hh:mm A');
+//             const transaction_date = date.format(new Date(), pattern);
+//             const messageRes = response.data.code;
+//             const transaction_id = response.data.data.transactionId;
+//             const payment_mes = response.data.message;
+//             const amount_pay = response.data.data.amount / 100;
+//             const pay_type = response.data.data.paymentInstrument.type;
+//             res.render("payment_response", {messageRes: messageRes, transaction_id: transaction_id, payment_mes, payment_mes, amount_pay, amount_pay, transaction_date: transaction_date, pay_type:pay_type})
+//       })
+//       .catch(function (error) {
+//          console.error('line 170 error:'+ error);
+//       });
 
-      // res.send({merchantTransactionId});
-   } else {
-      res.send('line 175 error:'+ {error: "Error"})
-   }
-})
+//       // res.send({merchantTransactionId});
+//    } else {
+//       res.send('line 175 error:'+ {error: "Error"})
+//    }
+// })
 
 
 
@@ -188,10 +197,16 @@ app.get("/", (req, res) => {
    res.render("index1", {slides: slides, slideImg: slideImg});
 })
 
+// app.get("/test", (req, res) => {
+//    const pattern = date.compile('MMM D, YYYY  hh:mm A');
+//    const transaction_date = date.format(new Date(), pattern);
+//    console.log(transaction_date);
+//    res.render("test", {transaction_date: transaction_date});
+// })
 // getting Home page
-app.get("/content", (req, res) => {
-   res.render("content");
-})
+// app.get("/content", (req, res) => {
+//    res.render("content");
+// })
 
 app.post("/", (req, res) => {
    var smtpTransport = nodemailer.createTransport({

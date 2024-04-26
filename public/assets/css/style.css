@@ -297,11 +297,11 @@ border-bottom-left-radius: 10px;
 .cta-big-3:hover {
   transform: scale(.94)
 }
-@media screen and (max-width: 767px){
+/* @media screen and (max-width: 767px){
   .cta-big-3.hidden {
       display: none;
   }
-}
+} */
 /* ============ */
 
 /* mobile view cta */

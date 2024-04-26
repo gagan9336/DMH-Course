@@ -1,3 +1,5 @@
 node_modules
 .env
 /views/content.ejs
+/views/test.ejs
+/views/payment_response.ejs
